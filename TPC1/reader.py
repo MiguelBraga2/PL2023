@@ -26,6 +26,22 @@ class Model:
         self.model = persons
         print(self.min_cholesterol)
 
+    def get_ages(self):
+        ages = list()
+        for person in self.model:
+            ages.append(person.age)
+
+        return ages
+
+    def get_cholesterol(self):
+        cholesterol = list()
+
+        for person in self.model:
+            cholesterol.append(person.cholesterol)
+
+        return cholesterol
+
+
 
 def validate_line(line):
     line = line.replace("\n", "")

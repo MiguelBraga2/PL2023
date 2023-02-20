@@ -1,5 +1,7 @@
+import plotting
 from reader import Model
 from distribution import Distribution
+from plotting import draw_histogram
 
 
 def sex_distribution(model):
@@ -31,14 +33,30 @@ def main():
     by_age = age_distribution(model)
     by_cholesterol = cholesterol_distribution(model)
 
-    print("//////////////// Distribution by sex ////////////////")
-    print(by_sex)
+    a = 4
+    while a != 0:
+        a = int(input("""What distribution to see?
+1 - by sex
+2 - age
+3 - by cholesterol
+0 - leave
+"""))
 
-    print("//////////////// Distribution by age ////////////////")
-    print(by_age)
-
-    print("//////////////// Distribution by cholesterol ////////////////")
-    print(by_cholesterol)
+        if a == 1:
+            print("//////////////// Distribution by sex ////////////////")
+            print(by_sex)
+            men_count = by_sex.dist['M']
+            women_count = by_sex.dist['F']
+            total_count = men_count + women_count
+            plotting.draw_pie_plot([men_count / total_count, women_count / total_count])
+        elif a == 2:
+            print("//////////////// Distribution by age ////////////////")
+            print(by_age)
+            plotting.draw_histogram(model.get_ages(), 20, 100, 5)
+        elif a == 3:
+            print("//////////////// Distribution by cholesterol ////////////////")
+            print(by_cholesterol)
+            plotting.draw_histogram(model.get_cholesterol(), 0, 600, 10)
 
 
 if __name__ == "__main__":
