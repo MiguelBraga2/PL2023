@@ -53,7 +53,7 @@ def validate_line(line):
    and line_split[2].isdigit() \
    and line_split[3].isdigit() and validate_cholesterol(int(line_split[3])) \
    and line_split[4].isdigit() \
-   and line_split[5].isdigit() :
+   and line_split[5].isdigit() and int(line_split[5]) == 1:
         return Person(int(line_split[0]),
                       line_split[1],
                       int(line_split[2]),
