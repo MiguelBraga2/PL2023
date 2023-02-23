@@ -44,18 +44,18 @@ def main():
 
         if a == 1:
             print("//////////////// Distribution by sex ////////////////")
-            print(by_sex)
+            by_sex.print_sex_distribution()
             men_count = by_sex.dist['M']
             women_count = by_sex.dist['F']
             total_count = men_count + women_count
             plotting.draw_pie_plot([men_count / total_count, women_count / total_count])
         elif a == 2:
             print("//////////////// Distribution by age ////////////////")
-            print(by_age)
+            by_age.print_age_distribution()
             plotting.draw_histogram(model.get_ages(), 20, 100, 5)
         elif a == 3:
             print("//////////////// Distribution by cholesterol ////////////////")
-            print(by_cholesterol)
+            by_cholesterol.print_cholesterol_distribution()
             plotting.draw_histogram(model.get_cholesterol(), 0, 600, 10)
 
 
