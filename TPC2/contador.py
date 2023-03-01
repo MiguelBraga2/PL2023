@@ -1,14 +1,12 @@
 import sys
 
-def main():
-    text = sys.stdin.readlines()
+count = 0 # Keeps the sum
+flag = True
+buffer = ""
+number = ""
 
-    count = 0 # Keeps the sum
-    flag = True
-    buffer = ""
-    number = ""
-
-    for c in text[0]:
+for line in sys.stdin:
+    for c in line:
         b_cap = buffer.upper()
         c_cap = c.upper()
         if (b_cap == "" and c_cap == 'O') or \
@@ -33,8 +31,3 @@ def main():
                 number = ""
         if c == '=':
             print(count)
-       
-        
-
-if __name__ == "__main__":
-    main()
