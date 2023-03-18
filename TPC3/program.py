@@ -73,7 +73,8 @@ for line in lines:
                     if relacao not in por_relacao:
                         por_relacao[relacao] = 0
                     por_relacao[relacao] += 1
-        # Converter os primeros 20 registos para um formato JSON
+                    
+        # Converter os primeiros 20 registos para um formato JSON
 
         p = Processo(pasta, data, nome_pessoa, nome_pai, nome_mae, obs)
         
